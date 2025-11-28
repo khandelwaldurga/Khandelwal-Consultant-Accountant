@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shree Tax Consultancy — Gopal Khandelwal & Associates</title>
+
+    <!-- Premium font (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+      :root{
+        --bg-black: #000000;
+        --red-900: #4a0000; /* card */
+        --red-800: #5f0000; /* accent */
+        --red-700: #7b0000; /* hover */
+        --muted: #bdbdbd;
+        --glass: rgba(255,255,255,0.04);
+        --glass-2: rgba(255,255,255,0.02);
+        --success: #00cc88;
+        --shadow: 0 10px 30px rgba(0,0,0,0.55);
+      }
+
+      *{box-sizing:border-box;margin:0;padding:0}
+      html, body {
+        margin: 0;
+        padding: 0;
+       width: 100%;
+       max-width: 100%;
+       overflow-x: hidden;
+   }
+
+      body{
+        font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        background: linear-gradient(180deg,var(--bg-black) 0%, #070707 100%);
+        color:#fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+        line-height:1.5;
+      }
+
+      /* ---------- Layout ---------- */
+      .container{max-width:1200px;margin:0 auto;padding:0 20px}
+      .contact-box
+
+      header{
+        position:sticky;top:0;background:linear-gradient(90deg,var(--red-900),#3b0000);
+        padding:18px 0;z-index:60;box-shadow:var(--shadow);
+        backdrop-filter: blur(6px);
+      }
+      .header-inner{display:flex;align-items:center;justify-content:space-between}
+      .brand{font-weight:800;letter-spacing:0.9px;font-size:20px}
+      nav a{color:#fff;text-decoration:none;margin-left:22px;font-weight:600}
+      nav a:hover{color:var(--red-700)}
+
+      /* CTA */
+      .cta{background:linear-gradient(90deg,var(--red-800),var(--red-700));border:none;padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease}
+      .cta:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(123,0,0,0.45)}
+
+      /* ---------- HERO ---------- */
+      .hero{position:relative;height:85vh;min-height:520px;display:flex;align-items:center;overflow:hidden}
+      .hero__media{position:absolute;inset:0}
+      .hero__media img{width:100%;height:100%;object-fit:cover;filter:contrast(0.9) saturate(.8)}
+      .hero__overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.55) 20%, rgba(0,0,0,0.7) 100%)}
+      .hero__content{position:relative;z-index:10;padding:40px 20px;max-width:1100px;margin:0 auto;display:flex;gap:30px;align-items:center}
+
+      .hero-left{flex:1}
+      .kicker{display:inline-block;background:var(--glass);padding:8px 12px;border-radius:999px;color:var(--muted);font-weight:600;margin-bottom:18px}
+      h1{font-size:44px;line-height:1.03;margin-bottom:12px;font-weight:800}
+      p.lead{color:var(--muted);font-size:15px;margin-bottom:22px;max-width:700px}
+
+      .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+      .btn-primary{background:linear-gradient(90deg,var(--red-800),var(--red-700));border-radius:12px;padding:14px 20px;font-weight:700;border:none;cursor:pointer}
+      .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:14px 20px;border-radius:12px;color:var(--muted);cursor:pointer}
+
+      /* subtle animated underline for contact */
+      .phone{display:inline-flex;align-items:center;font-weight:700}
+      .phone::after{content:'';display:block;height:3px;width:40px;background:linear-gradient(90deg,var(--red-800),var(--red-700));margin-left:10px;border-radius:3px;animation:slide 2s infinite}
+      @keyframes slide{0%{transform:translateX(-10px)}50%{transform:translateX(6px)}100%{transform:translateX(-10px)}}
+
+      /* ---------- SERVICES ---------- */
+      section{padding:80px 0}
+      #services h2{text-align:center;font-size:34px;margin-bottom:6px}
+      #services p{color:var(--muted);text-align:center;margin-bottom:28px}
+
+      .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1100px;margin:30px auto}
+      .service-card{text-align: center;     background:linear-gradient(180deg,var(--red-900),#380000);padding:28px;border-radius:16px;box-shadow:var(--shadow);transition:transform .28s cubic-bezier(.2,.9,.2,1),box-shadow .28s;cursor:pointer;border:1px solid rgba(255,255,255,0.03)}
+      .service-card h3{font-size:20px;margin-bottom:10px}
+      .service-card p{color:var(--muted);font-size:15px}
+
+      /* hover tilt + glow */
+      .service-card:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 20px 50px rgba(123,0,0,0.45);border:1px solid rgba(255,255,255,0.06)}
+
+      /* ---------- ABOUT ---------- */
+      #about .about-box{ text-align: center;  background:linear-gradient(180deg,var(--red-900),#3a0000);padding:40px;border-radius:22px;box-shadow:var(--shadow);max-width:1000px;margin:0 auto }
+      #about h2{font-size:30px}
+      #about p{color:var(--muted);font-size:17px}
+    
+
+      /* ---------- WHY CHOOSE US ---------- */
+      .why{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+      .why img{width:100%;height:100%;object-fit:cover;border-radius:12px}
+      .why-list{background:var(--glass-2);padding:26px;border-radius:12px}
+      .why-list li{margin:14px 0;color:var(--muted);font-weight:600} 
+
+      /* ---------- CONTACT ---------- */
+      #contact .contact-grid{display:flex;gap:22px;flex-wrap:wrap;justify-content:center}
+      .contact-card{background:linear-gradient(180deg,var(--red-900),#3c0000);padding:20px;border-radius:12px;width:320px;box-shadow:var(--shadow)}
+      .contact-card h4{margin-bottom:8px}
+      .contact-card p{color:var(--muted)}
+
+      /* appointment form */
+      .form-card{background:linear-gradient(180deg,var(--red-900),#3a0000);padding:28px;border-radius:12px;box-shadow:var(--shadow);max-width:520px;width:100%}
+      .form-row{display:flex;gap:12px}
+      .form-row .half{flex:1}
+      label{display:block;font-size:13px;margin-bottom:6px;color:var(--muted)}
+      input[type=text],input[type=email],input[type=datetime-local],textarea,select{width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text);font-size:15px}
+      textarea{min-height:110px;resize:vertical}
+      .form-actions{display:flex;gap:12px;margin-top:14px}
+
+      /* modal */
+      .modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:120;visibility:hidden;opacity:0;transition:opacity .2s ease,visibility .2s}
+      .modal.show{visibility:visible;opacity:1}
+      .modal-box{background:#0b0b0b;padding:26px;border-radius:12px;max-width:640px;width:90%;box-shadow:0 18px 50px rgba(0,0,0,0.6)}
+
+      /* ---------- FOOTER ---------- */
+      footer{padding:28px 0;background:linear-gradient(90deg,var(--red-900),#3b0000);margin-top:40px}
+      footer .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px}
+      footer p{color:var(--muted)}
+
+      .html {
+  scroll-behavior: smooth;
+}
+
+      .form-card img {
+  pointer-events: none;
+}
+      .hero__media,
+      .hero__media img,
+      .form-card img {
+  pointer-events: none;
+}
+      .btn-primary {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+      .btn-primary:visited {
+  color: white !important;
+}
+
+      .btn-primary:hover {
+  color: white !important;
+}
+      .contact-box {
+  transition: 0.3s ease; 
+}
+
+/* HAMBURGER ICON */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  user-select: none;
+  color: #fff;
+}
+
+/* MOBILE NAV (RIGHT SIDE SLIDE) */
+@media (max-width: 700px) {
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -260px; /* hidden */
+    width: 260px;
+    height: 100vh;
+    background: #180000;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: right 0.3s ease-in-out;
+    z-index: 9999;
+  }
+
+  nav.open {
+    right: 0; /* SLIDE FROM RIGHT */
+  }
+
+  nav a {
+    display: block;
+    padding: 14px 22px;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .header-inner {
+    justify-content: space-between;
+  }
+
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* HAMBURGER ICON */
+.menu-toggle {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+}
+
+/* DESKTOP NAV */
+nav a {
+  text-decoration: none;
+  color: white;
+  margin-left: 20px;
+  font-size: 16px;
+}
+
+/* CLOSE BUTTON */
+.close-btn {
+  display: none;
+  font-size: 30px;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  cursor: pointer;
+  color: white;
+}
+
+/* BACKDROP */
+#backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  z-index: 1500;
+}
+
+/* ============= MOBILE MENU ============= */
+@media (max-width: 700px) {
+
+  .menu-toggle {
+    display: block;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100vh;
+    background: #180000;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: column;
+    transition: right .3s ease;
+    z-index: 2000;
+  }
+
+  nav.open {
+    right: 0;
+  }
+
+  nav a {
+    padding: 18px 25px;
+    margin: 0;
+    font-size: 18px;
+  }
+
+  .close-btn {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+/* ---------- Responsiveness ---------- */
+      @media (max-width:1000px){
+        .services-grid{grid-template-columns:repeat(2,1fr)}
+        .why{grid-template-columns:1fr}
+        .hero__content{flex-direction:column;align-items:flex-start;padding-top:90px}
+        h1{font-size:36px}
+      }
+      @media (max-width:700px){
+        .services-grid{grid-template-columns:1fr}
+        .header .brand{font-size:18px}
+        .nav a{display:none}
+        .hero{min-height:520px}
+        .h1{font-size:28px}
+        .hero-left{width:100%}
+      }
+
+/* small helpers */
+      .muted{color:var(--muted)}
+      .text-small{font-size:13px;color:var(--muted)}
+
+    </style>
+  </head>
+
+  <body>
+    
+    <!-- BACKDROP -->
+<div id="backdrop" onclick="closeMenu()"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+
+    <div class="brand">SHREE GOPAL KHANDELWAL</div>
+
+    <!-- HAMBURGER -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <!-- NAV MENU -->
+    <nav id="navMenu">
+      <div class="close-btn" onclick="closeMenu()">✕</div>
+
+      <a href="#home" onclick="closeMenu()">Home</a>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#about" onclick="closeMenu()">About</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+    </nav>
+
+  </div>
+</header>
+
+    
+
+
+
+
+
+    
+
+   
+          
+<!-- HERO -->
+   <section class="hero" id="home">
+   <div class="hero__media">
+  <img src="PITA33.jpeg" alt="Office background">
+    </div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content container">
+    <div class="hero-left">
+    
+    <span class="kicker">Trusted • Local • 25+ Years</span>
+
+      
+        <h1 >Gopal Khandelwal & Associates</h1>
+
+      <p class="lead">
+         Professional accounting, taxation, and documentation services for individuals and businesses. 
+         Trusted, accurate guidance — serving Chikhali, Maharashtra.
+      </p>
+
+      <div class="hero-actions">
+     <a href="javascript:void(0)" onclick="scrollToContactHero()" class="btn-primary">
+             Book Appointment
+     </a>
+    <script>
+     function scrollToContactHero() {
+     const contactSection = document.getElementById("contact");
+     contactSection.scrollIntoView({ behavior: "smooth" });
+}
+    </script>
+
+
+    <button class="btn-ghost" onclick="openWhatsApp()">
+      Chat on WhatsApp
+    </button>
+
+      </div>
+
+      <p style="margin-top:18px" class="phone">📞 +91 9881940206</p>
+
+       </div>
+     </div>
+   </section>
+
+
+ <!-- SERVICES -->
+      <section id="services">
+        <div class="container">
+          <h2>Our Services</h2>
+          <p>Accounting Tax Basic | GST New Number Registration | Income Tax Return | Udyam Certificates | B/Sheet Bank Purpose | Project Report | GST Return | PAN card</p>
+
+          <div class="services-grid">
+            <div class="service-card">
+              <h3>Accounting Services</h3>
+              <p>Purchasing Entries, Sales Entries, Bank Statement, Investment, Agriculture Income, Fix Assets</p>
+            </div>
+
+            <div class="service-card">
+              <h3>GST Services</h3>
+              <p>R1 B2B Sales Upload,
+                <br/>B2C Sales Bill</p>
+            </div>
+
+            <div class="service-card">
+              <h3>Loan Assistance</h3>
+              <p>Cash Credit, Housing, Education, Vehicle, Gold, LIC, Agricultural, FDR Loan</p>
+            </div>
+
+            <div class="service-card">
+              <h3>Asset Proof</h3>
+              <p>Agricultural Land, Plot, Computer, Invetor, Vehicle, Building</p>
+            </div>
+
+
+            <div class="service-card">
+              <h3>Banking</h3>
+              <p>Saving A/C, Current A/C</p>
+            </div>
+
+            <div class="service-card">
+              <h3>Investment</h3>
+              <p>LIC Receipt, FDR, PPF, RD, Gold, Silver , Mutual Fund</p>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+
+
+<!-- ABOUT -->
+
+      <section id="about">
+  <div class="container about-box" style="text-align:center;">
+    
+    <h2 style="font-size:32px; margin-bottom:8px;">
+      About
+    </h2>
+    
+    <h3 style="font-size:20px; font-weight:600; margin-top:0; opacity:0.85;">
+      Gopal Khandelwal & Associates
+    </h3>
+
+    <p style="font-size:17px; line-height:1.7; margin-top:15px; text-align:center;">
+      Gopal Khandelwal & Associates is a trusted consultancy firm with over 25 years of experience in 
+      accounting, taxation, and financial documentation. We are committed to making financial processes 
+      simple, clear, and reliable for individuals and businesses.
+
+      <br/><br/>
+      Our key services include:
+      <br/>• GST Registration & Return Filing
+      <br/>• Income Tax Filing & Tax Planning
+      <br/>• Loan & Banking Documentation
+      <br/>• Project Reports & Investment Documentation
+      <br/>• Financial Consultancy & Advisory
+
+      <br/><br/>
+      With a client-focused approach and strong industry expertise, we ensure accuracy, confidentiality, 
+      and timely delivery in every service. Our aim is to make your financial and documentation experience 
+      smooth and stress-free.
+    </p>
+
+    <!-- CENTERED INFO BOXES -->
+    <div style="
+      margin-top:25px;
+      display:flex;
+      justify-content:center;
+      gap:40px;
+      flex-wrap:wrap;
+      text-align:center;
+    ">
+
+      <div style="min-width:200px">
+        <div style="font-weight:700; font-size:18px;">Our Promise</div>
+        <div class="text-small">Transparent fees • Personalised support • On-time delivery</div>
+      </div>
+
+      <div style="min-width:200px">
+        <div style="font-weight:700; font-size:18px;">Location</div>
+        <div class="text-small">Chikhali, Buldhana District, Maharashtra</div>
+      </div>
+
+      <div style="min-width:200px">
+        <div style="font-weight:700; font-size:18px;">Contact</div>
+        <div class="text-small">+91 9881940206 • gopalkhandelwal77@rediffmail.com</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+  <!-- OUR MISSION -->
+
+<section id="mission" style="padding-top:60px">
+  <div style="
+    background:#4a0000;
+    padding:35px;
+    border-radius:18px;
+    color:white;
+    box-shadow:0 0 25px rgba(0,0,0,0.45);
+  ">
+    <h2 style="
+      font-size:38px;
+      font-weight:800;
+      margin-bottom:18px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      text-align:center;
+    ">
+      Our Mission
+    </h2>
+
+    <p style="
+      font-size:18px;
+      line-height:1.6;
+      text-align:center;
+      max-width:850px;
+      margin:auto;
+      margin-bottom:28px;
+    ">
+      Our mission is to provide accurate, transparent, and reliable taxation,
+      accounting, and documentation services that help individuals and businesses
+      stay fully compliant. We aim to simplify complex processes, deliver timely
+      results, and build long-term trust through honesty, clarity, and personal
+      guidance.
+    </p>
+
+    <div style="
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      justify-content:center;
+      margin-top:10px;
+    ">
+      
+      <div style="min-width:230px; padding:15px;">
+        <div style="font-size:20px; font-weight:700; text-align: center;">Client First</div>
+        <div style="font-size:16px; opacity:0.9;">
+          Every service designed for convenience & clarity.
+        </div>
+      </div>
+
+      <div style="min-width:230px; padding:15px;">
+        <div style="font-size:20px; font-weight:700; text-align: center;">Accuracy</div>
+        <div style="font-size:16px; opacity:0.9;">
+          Audit-ready, compliant documentation every time.
+        </div>
+      </div>
+
+      <div style="min-width:230px; padding:15px;">
+        <div style="font-size:20px; font-weight:700; text-align: center;">Trust</div>
+        <div style="font-size:16px; opacity:0.9;">
+          25+ years of dependable professional experience.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- WHY CHOOSE -->
+
+      <section id="why-choose" style="padding-bottom:60px"
+       >
+        <div class="container why">
+          <img src="PITA34.png" alt="office" height="20%" width="20%" style="border-radius:12px;"> 
+          <div class="why-list">
+            <h2 style="margin-bottom:10px">Why Choose Us?</h2>
+            <ul>
+              <li>✔️ 25+ Years of Proven Expertise
+                 <br/>Decades of experience in accounting, taxation, and financial documentation.</li>
+              <li>✔️ Fast & Reliable Service
+                <br/>Accurate documentation with quick turnaround—no delays, no stress</li>
+              <li>✔️ Personalized 1-on-1 Assistance
+                <br/>Every client receives dedicated guidance tailored to their needs.</li>
+              <li>✔️ Transparent & Affordable Pricing
+                <br/>Clear pricing structure with no hidden charges.</li>
+             <li>✔️ 24/7 Support on Call & WhatsApp
+                <br/>Always available to help—anytime you need us. </li>
+              
+            </ul>
+          </div>
+        </div>
+      </section>
+
+<!-- CONTACT + APPOINTMENT -->
+
+      <section id="contact">
+        <div class="container">
+          <div class="contact-box">
+          <h2>Contact Us</h2>
+          <p class="muted">Appointments available on call or WhatsApp.</p>
+
+          <div class="contact-grid" style="margin-top:28px " >
+            <div class="contact-card" >
+              <h4>Address</h4>
+              <p>Renuka Devi Mandir, Chikhali, Maharashtra – 443201</p>
+            </div>
+
+            <div class="contact-card">
+              <h4>Phone</h4>
+              <p><a href="tel:+919881940206" style="color:#fff;text-decoration:none">+91 9881940206</a></p>
+            </div>
+
+           <div class="contact-card">
+           <h4>WhatsApp</h4>
+             <p>
+            <a href="https://api.whatsapp.com/send?phone=919881940206" target="_blank" style="color:#fff;text-decoration:none;">+91 9881940206</a>
+
+            </p>
+          </div>
+
+            <div class="contact-card">
+              <h4>Email</h4>
+              <p><a href="mailto:gopalkhandelwal77@rediffmail.com" style="color:#fff;text-decoration:none">gopalkhandelwal77@rediffmail.com</a></p>
+            </div>
+            </div>
+          </div>
+          </div>
+
+          <div style="margin-top:30px;display:flex;gap:30px;flex-wrap:wrap;justify-content:center;align-items:flex-start">
+            <div class="form-card">
+              <img src="PITA35.png" alt="office" height="450px" width="470px" style="border-radius:12px;">
+              <form id="appointmentForm">
+                <div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap">
+                  <div style="flex:1;min-width:160px">
+                    <label for="name">Your name</label>
+                    <input id="name" name="name" type="text" placeholder="Full name" required>
+                  </div>
+
+                  <div style="flex:1;min-width:160px">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                  </div>
+                </div>
+
+                <div style="margin-top:12px">
+                  <label for="phone">Phone</label>
+                  <input id="phone" name="phone" type="text" placeholder="+91 9XXXXXXXXX" required>
+                </div>
+
+                
+
+                <div style="margin-top:12px">
+                  <label for="message">Short message (optional)</label>
+                  <textarea id="message" name="message" placeholder="Tell us briefly what you need"></textarea>
+                </div>
+
+                <div class="form-actions">
+                  <button class="cta" type="submit">Confirm & Email Me</button>
+                  <button type="button" class="btn-ghost" onclick="openWhatsApp()">Request via WhatsApp</button>
+                </div>
+              </form>
+            </div>
+
+  <!-- Map / Extra info -->
+
+            <div style="min-width:320px;max-width:520px">
+              <div style="background:linear-gradient(180deg,#080808,#0b0b0b);padding:20px;border-radius:12px;box-shadow:var(--shadow)">
+                <h4>Office Location</h4>
+                <div style="height:260px;border-radius:10px;overflow:hidden;margin-top:10px">
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3740.8254288350263!2d76.2508920749092!3d20.348829210784807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bda100bfbdebbc9%3A0xd123af58c2d138bd!2sShree%20Renuka%20Mata%20Mandir!5e0!3m2!1sen!2sin!4v1753961168420!5m2!1sen!2sin" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <div style="margin-top:12px;color:var(--muted);font-size:14px">Prefer a call? <a href="tel:+919881940206" style="color:var(--success);text-decoration:none">Call me +91 9881940206</a></div>
+              </div>
+
+            </div>
+          </div>
+        
+      </section>
+
+  <!-- Modal (success) -->
+
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-box">
+        <div id="modalContent"></div>
+        <div style="text-align:right;margin-top:14px"><button class="btn-ghost" onclick="closeModal()">Close</button></div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container foot-inner">
+        <div>
+          <div style="font-weight:700">Shree Gopal Khandelwal</div>
+          <div class="text-small">Trusted Accounting & Tax Solutions</div>
+        </div>
+        
+        <div style="text-align:right">
+          <p class="text-small">Website by <br/> Durga Priti Gopal Khandelwal <br/> +91 7972179188</p>
+        </div>
+      </div>
+    </footer>
+
+
+    <script>
+      /* Utilities */
+      function scrollToContact(){document.getElementById('contact').scrollIntoView({behavior:'smooth',block:'start'})}
+      function openWhatsApp(){window.open('https://wa.me/919881940206','_blank')}
+
+      /* Appointment form handling: validation + email + ICS file generation */
+      const form = document.getElementById('appointmentForm');
+      const modal = document.getElementById('modal');
+      const modalContent = document.getElementById('modalContent');
+
+      function closeModal(){modal.classList.remove('show');modal.setAttribute('aria-hidden','true')}
+
+     form.addEventListener('submit', function(e){
+  e.preventDefault();
+  
+  const data = new FormData(form);
+  const name = data.get('name').trim();
+  const email = data.get('email').trim();
+  const phone = data.get('phone').trim();
+  const message = data.get('message').trim();
+
+  if(!name || !email || !phone){
+    alert("Please fill required fields");
+    return;
+  }
+
+  // Email subject
+  const subject = encodeURIComponent("New Contact Form Submission — " + name);
+
+  // Email body
+  const body =
+    encodeURIComponent(
+      "New enquiry from website:\n\n" +
+      "Name: " + name + "\n" +
+      "Phone: " + phone + "\n" +
+      "Email: " + email + "\n" +
+      "Message: " + message
+    );
+
+  // Open mail client
+  window.location.href =
+    `mailto:gopalkhandelwal77@rediffmail.com?subject=${subject}&body=${body}`;
+
+  // Success popup
+  modalContent.innerHTML = `
+    <h3>Form Submitted</h3>
+    <p class="muted">We opened your email app. Please press send to confirm.</p>
+  `;
+  
+  modal.classList.add('show');
+});
+
+
+        // Generate ICS (calendar invite) for the user
+        const eventStart = new Date(datetime);
+        const eventEnd = new Date(eventStart.getTime() + 30*60000); // default 30 minutes
+        const dtStart = toICSDate(eventStart);
+        const dtEnd = toICSDate(eventEnd);
+        const uid = 'appt-' + Date.now();
+
+        const icsLines = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Gopal Khandelwal//Appointment//EN',
+          'CALSCALE:GREGORIAN',
+          'BEGIN:VEVENT',
+          `UID:${uid}@gopalkhandelwal.in`,
+          `DTSTAMP:${toICSDate(new Date())}`,
+          `DTSTART:${dtStart}`,
+          `DTEND:${dtEnd}`,
+          `SUMMARY:Appointment with Gopal Khandelwal & Associates`,
+          `DESCRIPTION:${escapeICS('Service: ' + service + ' - ' + message + ' | Contact: ' + phone + ' | Email: ' + email)}`,
+          'LOCATION:Renuka Devi Mandir, Chikhali, Maharashtra',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join();
+
+        const blob = new Blob([icsLines], {type:'text/calendar;charset=utf-8'});
+        const url = URL.createObjectURL(blob);
+
+        // Show modal with links
+        modalContent.innerHTML = `
+          <h3 style="margin-bottom:8px">Appointment prepared</h3>
+          <p class="muted">We opened your email client to send the appointment request to the office address. You can also download a calendar file to add this meeting to your calendar.</p>
+          <div style='margin-top:12px;display:flex;gap:12px'>
+            <a href='${url}' download='appointment.ics' class='cta' style='text-decoration:none'>Download .ics</a>
+            <a href='mailto:gopalkhandelwal77@rediffmail.com?subject=${subject}&body=${body}' class='btn-ghost' style='text-decoration:none;padding:12px 14px;border-radius:10px'>Open Email</a>
+          </div>
+        `;
+
+        modal.classList.add('show');modal.setAttribute('aria-hidden','false');
+
+        // small local save (optional) — stores last request for quick retrieval
+        const short = {name,email,phone,datetime,service,message,ts:Date.now()};
+        try{localStorage.setItem('last_appointment',JSON.stringify(short))}catch(err){}
+
+      });
+
+      function toICSDate(d){
+        // Returns YYYYMMDDTHHMMSSZ (UTC)
+        const pad = n => String(n).padStart(2,'0');
+        return d.getUTCFullYear() + pad(d.getUTCMonth()+1) + pad(d.getUTCDate()) + 'T' + pad(d.getUTCHours()) + pad(d.getUTCMinutes()) + pad(d.getUTCSeconds()) + 'Z';
+      }
+
+      function escapeICS(text){
+        return text.replace;
+      }
+
+      // Close modal on background click
+      modal.addEventListener('click', function(e){ if(e.target === modal) closeModal(); })
+
+      // preload last appointment into form if available
+      window.addEventListener('load', function(){
+        try{
+          const last = JSON.parse(localStorage.getItem('last_appointment'));
+          if(last){
+            document.getElementById('name').value = last.name||'';
+            document.getElementById('email').value = last.email||'';
+            document.getElementById('phone').value = last.phone||'';
+            document.getElementById('datetime').value = last.datetime||'';
+            document.getElementById('service').value = last.service||'Accounting';
+            document.getElementById('message').value = last.message||'';
+          }
+        }catch(e){}
+      });
+
+    </script>
+    <script>
+  function openWhatsApp() {
+  const phone = "919881940206"; // without + sign
+  const message = encodeURIComponent("Hello, I want to book an appointment.");
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+</script>
+
+  </body>
+  
+
+<script>
+  function openWhatsApp() {
+  const phone = "919881940206";
+  const message = encodeURIComponent("Hello, I want to book an appointment.");
+  window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+}
+
+  function scrollToContactHero() {
+  const contactSection = document.getElementById("contact");
+  contactSection.scrollIntoView({ behavior: "smooth" });
+}
+</script>
+
+<script>
+function toggleMenu() {
+  document.getElementById("navMenu").classList.toggle("open");
+  document.getElementById("backdrop").style.display = "block";
+}
+
+function closeMenu() {
+  document.getElementById("navMenu").classList.remove("open");
+  document.getElementById("backdrop").style.display = "none";
+}
+</script>
+
+
+
+
+
+</html>
+
